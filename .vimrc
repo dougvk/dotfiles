@@ -57,20 +57,38 @@ inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
-nnoremap ; :
-nnoremap j k
-nnoremap k j
+nnoremap <leader>t :tabnew<CR>
 
-au FocusLost * :wa
+nnoremap ; :
 
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 nnoremap <leader>w :w<CR>
+nnoremap <leader>a :Ack
+nnoremap <leader>m :make<CR>
+nnoremap <leader>e :copen<CR>
+nnoremap <leader>wq :wq<CR>
 
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-set pastetoggle=<F12>
+map <F12> :NERDTreeToggle<cr>
+let NERDTreeIgnore=['.vim$', '\~$', '.*\.pyc$', 'pip-log\.txt$']
 
 cmap w!! w !sudo tee % >/dev/null
+
+nnoremap <leader>s <C-w>v<C-w>l
+
+if &t_Co > 256 || has('gui_running')
+    colorscheme mustang
+endif
+
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
