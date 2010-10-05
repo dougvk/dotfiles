@@ -73,6 +73,7 @@ nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gc :Gcommit
 nnoremap <leader>gr :Gread
+nnoremap <leader>R :RainbowParenthesesToggle<CR>
 
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
