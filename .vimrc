@@ -10,6 +10,7 @@ syntax on
 let mapleader=","
 
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 set hidden
 
@@ -67,13 +68,21 @@ nnoremap <leader>a :Ack
 nnoremap <leader>m :make<CR>
 nnoremap <leader>e :copen<CR>
 nnoremap <leader>wq :wq<CR>
+nnoremap <leader>q :q<CR>
+nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gc :Gcommit
+nnoremap <leader>gr :Gread
 
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-map <F12> :NERDTreeToggle<cr>
+nnoremap <silent> <F12> :NERDTreeToggle<cr>
+inoremap <silent> <F12> <ESC>:NERDTreeToggle<cr>
+nnoremap <silent> <F3> :YRShow<cr>
+inoremap <silent> <F3> <ESC>:YRShow<cr>
 let NERDTreeIgnore=['.vim$', '\~$', '.*\.pyc$', 'pip-log\.txt$']
 
 cmap w!! w !sudo tee % >/dev/null
