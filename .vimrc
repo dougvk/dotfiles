@@ -15,6 +15,7 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 set hidden
 
 set modelines=0
+set textwidth=72
 
 set tabstop=4
 set shiftwidth=4
@@ -41,6 +42,7 @@ set backspace=indent,eol,start
 set laststatus=2
 set relativenumber
 set undofile
+set undodir=/home/dougvk/undofiles
 
 nnoremap / /\v
 vnoremap / /\v
@@ -102,3 +104,21 @@ inoremap <up> <nop>
 inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
+
+set laststatus=2                                  " Always show status.
+set statusline=                                   " Reset status.
+set statusline+=%<\                               " Cut at start.
+set statusline+=%2*[%n%H%M%R%W]%*\                " Flags and buffer number.
+set statusline+=%-40f\                            " Path.
+set statusline+=%=%1*%{fugitive#statusline()}%*\  " Git branch.
+set statusline+=%=%1*%y%*%*\                      " File type.
+set statusline+=%10((%l,%c)%)\                    " Line and column numbers.
+set statusline+=%P                                " Percentage of file.
+
+if has("autocmd")
+    au FocusLost * :wa
+    au BufEnter * lcd %:p:h
+endif
+
+map <C-J> :m +1<CR>                " Move line down.
+map <C-K> :m -2<CR>                " Move line up.
