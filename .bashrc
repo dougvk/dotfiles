@@ -103,3 +103,6 @@ alias trash='rm -fr ~/.Trash'
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
+export PATH=$HOME/local/node/bin:$PATH

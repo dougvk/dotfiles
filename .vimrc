@@ -3,6 +3,8 @@ call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 filetype plugin indent on
 
+autocmd! BufNewFile,BufReadPre,FileReadPre *.rb so ~/.vim/ruby.vim
+
 set nocompatible
 
 syntax on
@@ -15,7 +17,7 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 set hidden
 
 set modelines=0
-set textwidth=72
+set textwidth=80
 
 set tabstop=4
 set shiftwidth=4
