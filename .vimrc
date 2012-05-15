@@ -1,7 +1,8 @@
 filetype off
+call pathogen#infect()
 call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
 filetype plugin indent on
+syntax on
 
 autocmd! BufNewFile,BufReadPre,FileReadPre *.rb so ~/.vim/ruby.vim
 
