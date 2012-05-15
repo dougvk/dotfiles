@@ -8,8 +8,6 @@ autocmd! BufNewFile,BufReadPre,FileReadPre *.rb so ~/.vim/ruby.vim
 
 set nocompatible
 
-syntax on
-
 let mapleader=","
 
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
@@ -117,6 +115,11 @@ set statusline+=%=%1*%{fugitive#statusline()}%*\  " Git branch.
 set statusline+=%=%1*%y%*%*\                      " File type.
 set statusline+=%10((%l,%c)%)\                    " Line and column numbers.
 set statusline+=%P                                " Percentage of file.
+
+" pymode settings
+:let g:pymode_utils_whitespaces = 0
+:let g:pymode_syntax_space_errors = 0
+:let g:session_autoload = 1
 
 if has("autocmd")
     au FocusLost * :wa
