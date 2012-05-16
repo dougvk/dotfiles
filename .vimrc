@@ -43,7 +43,7 @@ set backspace=indent,eol,start
 set laststatus=2
 set relativenumber
 set undofile
-set undodir=/home/dougvk/undofiles
+set undodir=/Users/dougvk/undofiles
 
 nnoremap / /\v
 vnoremap / /\v
@@ -63,12 +63,9 @@ vnoremap <F1> <ESC>
 
 nnoremap <leader>t :tabnew<CR>
 
-nnoremap ; :
-
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>a :Ack
-nnoremap <leader>m :make<CR>
 nnoremap <leader>e :copen<CR>
 nnoremap <leader>wq :wq<CR>
 nnoremap <leader>q :q<CR>
@@ -76,7 +73,6 @@ nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gc :Gcommit
 nnoremap <leader>gr :Gread
-nnoremap <leader>R :RainbowParenthesesToggle<CR>
 
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -97,15 +93,6 @@ if &t_Co > 256 || has('gui_running')
     colorscheme mustang
 endif
 
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
-
 set laststatus=2                                  " Always show status.
 set statusline=                                   " Reset status.
 set statusline+=%<\                               " Cut at start.
@@ -117,14 +104,13 @@ set statusline+=%10((%l,%c)%)\                    " Line and column numbers.
 set statusline+=%P                                " Percentage of file.
 
 " pymode settings
-:let g:pymode_utils_whitespaces = 0
-:let g:pymode_syntax_space_errors = 0
-:let g:session_autoload = 1
+let g:pymode_utils_whitespaces = 0
+let g:pymode_syntax_space_errors = 0
+let g:session_autoload = 1
 
-if has("autocmd")
-    au FocusLost * :wa
-    au BufEnter * lcd %:p:h
-endif
+" yankring settings
+let g:yankring_history_dir = '/Users/dougvk/undofiles'
 
-map <C-J> :m +1<CR>                " Move line down.
-map <C-K> :m -2<CR>                " Move line up.
+" mru settings
+let MRU_Max_Entries = 50
+map <leader>m :MRU<CR>

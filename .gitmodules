@@ -30,3 +30,7 @@
 	path = bundle/python-mode
 	url = git://github.com/klen/python-mode.git
     ignore = untracked
+[submodule "bundle/mru"]
+	path = bundle/mru
+	url = https://github.com/vim-scripts/mru.vim.git
+    ignore = untracked
