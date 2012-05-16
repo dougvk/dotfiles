@@ -79,8 +79,8 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-nnoremap <silent> <F12> :NERDTreeToggle<cr>
-inoremap <silent> <F12> <ESC>:NERDTreeToggle<cr>
+"nnoremap <silent> <F12> :NERDTreeToggle<cr>
+"inoremap <silent> <F12> <ESC>:NERDTreeToggle<cr>
 nnoremap <silent> <F3> :YRShow<cr>
 inoremap <silent> <F3> <ESC>:YRShow<cr>
 let NERDTreeIgnore=['.vim$', '\~$', '.*\.pyc$', 'pip-log\.txt$']
@@ -114,3 +114,11 @@ let g:yankring_history_dir = '/Users/dougvk/undofiles'
 " mru settings
 let MRU_Max_Entries = 50
 map <leader>m :MRU<CR>
+
+" Command-T settings
+let g:CommandTMaxHeight = 15
+let g:CommandTMaxFiles = 100000
+set wildignore+=*.git,*.pyc
+nnoremap <leader>d :CommandTFlush<CR>
+nnoremap <silent> <F12> :CommandT<cr>
+inoremap <silent> <F12> <ESC>:CommandT<cr>
