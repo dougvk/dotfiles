@@ -167,6 +167,9 @@ endif
 let g:pymode_utils_whitespaces = 0
 let g:pymode_syntax_space_errors = 0
 let g:session_autoload = 1
+let g:pymode_lint_write = 1
+let g:pymode_lint_checker = "pyflakes,pep8,mccabe"
+let g:pymode_lint_ignore = "E501,E302,W291,W293,W391"
 
 " mru plugin settings
 let MRU_Max_Entries = 50

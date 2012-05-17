@@ -88,14 +88,16 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias ll='ls -l'
-alias l='ls -lA'
+alias ll='ls -lG'
 alias df='df -h'
 alias gitcp='cp /media/Knowledge_/My\ Dropbox/Public/.gitconfig ~/.gitconfig'
 alias g='git'
 alias home='cd ~'
 alias u='cd ..'
 alias trash='rm -fr ~/.Trash'
+alias ls='ls -G'
+alias la='ls -laG'
+alias l='ll'
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -103,6 +105,5 @@ alias trash='rm -fr ~/.Trash'
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
-export PATH=$HOME/local/node/bin:$PATH
+export LSCOLORS=gxfxcxdxbxegedabagacad
+source ~/.git-completion.bash
