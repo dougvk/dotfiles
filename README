@@ -1,0 +1,8 @@
+First, initialize the submodules:
+
+git submodule init
+git submodule update
+
+Then, cd into bundle/command-t and run bundle install
+
+Ready to go!
