@@ -24,8 +24,8 @@ set hidden
 " affects status at bottom
 set modelines=0
 
-" ensures a single line of text/code stops at column 80
-set textwidth=80
+" ensures a single line of text/code stops at column 79 (PEP8 standard)
+set textwidth=79
 
 " tab == 4 spaces
 " and any indentation is 4 spaces
@@ -115,6 +115,10 @@ vnoremap <F1> <ESC>
 " ,t opens new tab
 nnoremap <leader>t :tabnew<CR>
 
+" ,o and ,c opens/closes all folds
+nnoremap <leader>o zR
+nnoremap <leader>c zM
+
 " map a bunch of leader keys to vim commands
 " remove trailing whitespace
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
@@ -142,10 +146,10 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-" disabling nerdtree for CommandT now
-"nnoremap <silent> <F12> :NERDTreeToggle<cr>
-"inoremap <silent> <F12> <ESC>:NERDTreeToggle<cr>
-"let NERDTreeIgnore=['.vim$', '\~$', '.*\.pyc$', 'pip-log\.txt$']
+" NERDTree for file exploration
+nnoremap <silent> <F12> :NERDTreeToggle<cr>
+inoremap <silent> <F12> <ESC>:NERDTreeToggle<cr>
+let NERDTreeIgnore=['.vim$', '\~$', '.*\.pyc$', 'pip-log\.txt$']
 
 " F3 brings up yankring
 nnoremap <silent> <F3> :YRShow<cr>
@@ -180,5 +184,4 @@ let g:CommandTMaxHeight = 15
 let g:CommandTMaxFiles = 100000
 set wildignore+=*.git,*.pyc
 nnoremap <leader>d :CommandTFlush<CR>
-nnoremap <silent> <F12> :CommandT<cr>
-inoremap <silent> <F12> <ESC>:CommandT<cr>
+nnoremap <leader>f :CommandT<CR>
