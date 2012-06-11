@@ -24,7 +24,7 @@ set hidden
 set modelines=0
 
 " ensures a single line of text/code stops at column 79 (PEP8 standard)
-set textwidth=79
+" set textwidth=79
 
 " tab == 4 spaces
 " and any indentation is 4 spaces
@@ -113,6 +113,8 @@ vnoremap <F1> <ESC>
 
 " ,t opens new tab
 nnoremap <leader>t :tabnew<CR>
+nnoremap <C-n> :tabnext<CR>
+nnoremap <C-p> :tabprev<CR>
 
 " ,o and ,c opens/closes all folds
 nnoremap <leader>o zR
@@ -150,33 +152,21 @@ nnoremap <silent> <F12> :NERDTreeToggle<cr>
 inoremap <silent> <F12> <ESC>:NERDTreeToggle<cr>
 let NERDTreeIgnore=['.vim$', '\~$', '.*\.pyc$', 'pip-log\.txt$']
 
-" F3 brings up yankring
-nnoremap <silent> <F3> :YRShow<cr>
-inoremap <silent> <F3> <ESC>:YRShow<cr>
-let g:yankring_history_dir = '/Users/dougvk/undofiles'
-
 " this should write a file even if sudo access is required
 "cmap w!! w !sudo tee % >/dev/null
 
 " not sure what this does
 "nnoremap <leader>s <C-w>v<C-w>l
 
-" use coloscheme mustang
-if &t_Co > 256 || has('gui_running')
-    colorscheme mustang
-endif
+colorscheme smyck
 
 " pymode plugin settings
 let g:pymode_utils_whitespaces = 0
 let g:pymode_syntax_space_errors = 0
 let g:session_autoload = 1
 let g:pymode_lint_write = 1
-let g:pymode_lint_checker = "pyflakes,pep8,mccabe"
+let g:pymode_lint_checker = "pylint,pep8,mccabe"
 let g:pymode_lint_ignore = "E501,E302,W291,W293,W391"
-
-" mru plugin settings
-let MRU_Max_Entries = 50
-map <leader>m :MRU<CR>
 
 " Command-T plugin settings
 let g:CommandTMaxHeight = 15

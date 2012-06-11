@@ -12,6 +12,8 @@ export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
 # ... or force ignoredups and ignorespace
 export HISTCONTROL=ignoreboth
 
+export PATH=/Library/PostgreSQL/9.1/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/local/bin:$PATH
+
 # append to the history file, don't overwrite it
 shopt -s histappend
 
@@ -90,14 +92,14 @@ fi
 # some more ls aliases
 alias ll='ls -lG'
 alias df='df -h'
-alias gitcp='cp /media/Knowledge_/My\ Dropbox/Public/.gitconfig ~/.gitconfig'
 alias g='git'
-alias home='cd ~'
 alias u='cd ..'
-alias trash='rm -fr ~/.Trash'
 alias ls='ls -G'
 alias la='ls -laG'
 alias l='ll'
+alias h='hg'
+alias hl='hg log | head -n 20'
+alias ip='ipython'
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -105,5 +107,8 @@ alias l='ll'
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
-export LSCOLORS=gxfxcxdxbxegedabagacad
+
+# Use smyck colorscheme now
+# LSCOLORS
+
 source ~/.git-completion.bash
