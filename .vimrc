@@ -57,10 +57,6 @@ set statusline+=%P                                " Percentage of file.
 " smoother changes
 set ttyfast
 
-" relative line numbers for jumping around
-" use <NUMBER>G to jump to line numbers, instead
-set relativenumber
-
 " show whether in command/visual/insert mode at bottom
 set showmode
 
@@ -101,6 +97,8 @@ set incsearch
 set showmatch
 set hlsearch
 nnoremap <leader><space> :noh<cr>
+autocmd InsertEnter * :setlocal nohlsearch
+autocmd InsertLeave * :setlocal hlsearch
 
 " in command and visual modes, tab will cycle between curly braces
 nnoremap <tab> %
@@ -111,10 +109,8 @@ inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
-" ,t opens new tab
+" ,t opens tab
 nnoremap <leader>t :tabnew<CR>
-nnoremap <C-n> :tabnext<CR>
-nnoremap <C-p> :tabprev<CR>
 
 " ,o and ,c opens/closes all folds
 nnoremap <leader>o zR
@@ -147,6 +143,23 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" write to read-only file
+cmap w!! %!sudo tee > /dev/null %
+
+" trying to wean myself off of anti-pattern
+"nnoremap jj <Esc>
+inoremap kj <Esc>
+
+" Skipping lines when wrap is set
+nnoremap j gj
+nnoremap k gk
+
+" remap beginning and end of line to keys I don't use
+map H ^
+map L $
+nnoremap <C-j> :bp<CR>
+nnoremap <C-k> :bn<CR>
+
 " NERDTree for file exploration
 nnoremap <silent> <F12> :NERDTreeToggle<cr>
 inoremap <silent> <F12> <ESC>:NERDTreeToggle<cr>
@@ -174,3 +187,11 @@ let g:CommandTMaxFiles = 100000
 set wildignore+=*.git,*.pyc
 nnoremap <leader>d :CommandTFlush<CR>
 nnoremap <leader>f :CommandT<CR>
+
+" relative line numbers for jumping around
+" use <NUMBER>G to jump to line numbers, instead
+set rnu
+au InsertEnter * :set nu
+au InsertLeave * :set rnu
+au FocusLost * :set nu
+au FocusGained * :set rnu
