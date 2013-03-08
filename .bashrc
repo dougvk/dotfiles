@@ -55,21 +55,22 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-if [ "$color_prompt" = yes ]; then
-	PS1='\[\033[01;32m\]\@ \u:\[\033[00m\]\[\033[01;34m\]\w\[\033[00m\]$(__git_ps1 " [%s]")\n\$ '
-else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-fi
-unset color_prompt force_color_prompt
+#if [ "$color_prompt" = yes ]; then
+	#PS1='\[\033[01;32m\]\@ \u:\[\033[00m\]\[\033[01;34m\]\w\[\033[00m\]$(__git_ps1 " [%s]")\n\$ '
+#else
+    #PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+#fi
+#unset color_prompt force_color_prompt
 
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
+## If this is an xterm set the title to user@host:dir
+#case "$TERM" in
+#xterm*|rxvt*)
+    #PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    #;;
+#*)
+    #;;
+#esac
+. ~/.vim/bundle/powerline/powerline/bindings/bash/powerline.sh
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like

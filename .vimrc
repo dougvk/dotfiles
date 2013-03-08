@@ -46,14 +46,14 @@ set encoding=utf-8
 set scrolloff=3
 
 set laststatus=2                                  " status line height is 2
-set statusline=                                   " Reset status.
-set statusline+=%<\                               " Cut at start.
-set statusline+=%2*[%n%H%M%R%W]%*\                " Flags and buffer number.
-set statusline+=%-40f\                            " Path.
-set statusline+=%=%1*%{fugitive#statusline()}%*\  " Git branch.
-set statusline+=%=%1*%y%*%*\                      " File type.
-set statusline+=%10((%l,%c)%)\                    " Line and column numbers.
-set statusline+=%P                                " Percentage of file.
+"set statusline=                                   " Reset status.
+"set statusline+=%<\                               " Cut at start.
+"set statusline+=%2*[%n%H%M%R%W]%*\                " Flags and buffer number.
+"set statusline+=%-40f\                            " Path.
+"set statusline+=%=%1*%{fugitive#statusline()}%*\  " Git branch.
+"set statusline+=%=%1*%y%*%*\                      " File type.
+"set statusline+=%10((%l,%c)%)\                    " Line and column numbers.
+"set statusline+=%P                                " Percentage of file.
 
 " smoother changes
 set ttyfast
@@ -201,7 +201,6 @@ nnoremap <leader>b :CtrlPBuffer<CR>
 " relative line numbers for jumping around
 " use <NUMBER>G to jump to line numbers, instead
 set rnu
-au InsertEnter * :set nu
-au InsertLeave * :set rnu
-au FocusLost * :set nu
-au FocusGained * :set rnu
+
+" powerline settings
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
