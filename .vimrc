@@ -1,6 +1,7 @@
 " Start pathogen
 filetype off
 call pathogen#infect()
+call pathogen#helptags()
 filetype plugin indent on
 syntax on
 
@@ -182,11 +183,20 @@ let g:pymode_lint_checker = "pylint,pep8,mccabe"
 let g:pymode_lint_ignore = "E501,E302,W291,W293,W391"
 
 " Command-T plugin settings
-let g:CommandTMaxHeight = 15
-let g:CommandTMaxFiles = 100000
-set wildignore+=*.git,*.pyc
-nnoremap <leader>d :CommandTFlush<CR>
-nnoremap <leader>f :CommandT<CR>
+" let g:CommandTMaxHeight = 15
+" let g:CommandTMaxFiles = 100000
+" set wildignore+=*.git,*.pyc
+" nnoremap <leader>d :CommandTFlush<CR>
+" nnoremap <leader>f :CommandT<CR>
+
+" Ctrl-P plugin settings
+:let g:ctrlp_map = '<Leader>f'
+:let g:ctrlp_match_window_bottom = 0
+:let g:ctrlp_match_window_reversed = 0
+:let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\]).(hg|git|bzr)($|[/\\])|__init__\.py'
+:let g:ctrlp_working_path_mode = 'c'
+:let g:ctrlp_dotfiles = 0
+nnoremap <leader>b :CtrlPBuffer<CR>
 
 " relative line numbers for jumping around
 " use <NUMBER>G to jump to line numbers, instead
