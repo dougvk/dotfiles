@@ -100,6 +100,13 @@ alias l='ll'
 alias h='hg'
 alias hl='hg log | head -n 20'
 alias ip='ipython'
+alias tunnel='sudo sshuttle --dns --daemon --pidfile=/tmp/sshuttle.pid --remote=dougvk@linode 0/0'
+alias tunnelx='[[ -f /tmp/sshuttle.pid ]] && sudo kill $(cat /tmp/sshuttle.pid) && echo "Disconnected."'
+
+# ifconfig
+# ping broadcast ip
+# arp -a
+alias spoof='sudo ifconfig en0 lladdr'
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -112,3 +119,20 @@ fi
 # LSCOLORS
 
 source ~/.git-completion.bash
+
+# Bash completion for fabric
+_fab()
+{
+    local cur
+    COMPREPLY=()
+    # Variable to hold the current word
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    # Build a list of the available tasks using the command 'fab -l'
+    local tags=$(fab -l 2>/dev/null | grep "^    " | awk '{print $1;}')
+
+    # Generate possible matches and store them in the
+    # array variable COMPREPLY
+    COMPREPLY=($(compgen -W "${tags}" $cur))
+}
+complete -F _fab fab
