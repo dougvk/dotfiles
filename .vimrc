@@ -5,6 +5,8 @@ call pathogen#helptags()
 filetype plugin indent on
 syntax on
 
+autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+
 " see my ruby.vim file -- enable this for ruby syntax highlighting
 " autocmd! BufNewFile,BufReadPre,FileReadPre *.rb so ~/.vim/ruby.vim
 
