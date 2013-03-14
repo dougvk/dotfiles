@@ -1,3 +1,8 @@
+# source the personalized rc files
+if [ -f ~/.personalrc ]; then
+    . ~/.personalrc
+fi
+
 # for tmuxinator
 export EDITOR=vim
 
@@ -14,8 +19,6 @@ echo -e ""; cal ;
 export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
 # ... or force ignoredups and ignorespace
 export HISTCONTROL=ignoreboth
-
-export PATH=/Library/PostgreSQL/9.1/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/local/bin:$PATH
 
 # append to the history file, don't overwrite it
 shopt -s histappend
@@ -70,16 +73,9 @@ fi
 #*)
     #;;
 #esac
+
+# use powerline now
 . ~/.vim/bundle/powerline/powerline/bindings/bash/powerline.sh
-
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-#if [ -f ~/.bash_aliases ]; then
-#    . ~/.bash_aliases
-#fi
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -103,9 +99,6 @@ alias la='ls -laG'
 alias l='ll'
 alias h='hg'
 alias hl='hg log | head -n 20'
-alias ip='ipython'
-alias tunnel='sudo sshuttle --dns --daemon --pidfile=/tmp/sshuttle.pid --remote=dougvk@linode 0/0'
-alias tunnelx='[[ -f /tmp/sshuttle.pid ]] && sudo kill $(cat /tmp/sshuttle.pid) && echo "Disconnected."'
 
 # ifconfig
 # ping broadcast ip
@@ -118,11 +111,6 @@ alias spoof='sudo ifconfig en0 lladdr'
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
-
-# Use smyck colorscheme now
-# LSCOLORS
-
-source ~/.git-completion.bash
 
 # Bash completion for fabric
 _fab()

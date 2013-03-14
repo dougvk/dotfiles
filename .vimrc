@@ -5,8 +5,6 @@ call pathogen#helptags()
 filetype plugin indent on
 syntax on
 
-autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
-
 " see my ruby.vim file -- enable this for ruby syntax highlighting
 " autocmd! BufNewFile,BufReadPre,FileReadPre *.rb so ~/.vim/ruby.vim
 
@@ -14,7 +12,7 @@ autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 set nocompatible
 
 " set the leader key to ','
-let mapleader=","
+let mapleader=";"
 
 " commands to edit vimrc quickly
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
@@ -158,8 +156,6 @@ nnoremap j gj
 nnoremap k gk
 
 " remap beginning and end of line to keys I don't use
-map H ^
-map L $
 nnoremap <C-j> :bp<CR>
 nnoremap <C-k> :bn<CR>
 
@@ -168,12 +164,7 @@ nnoremap <silent> <F12> :NERDTreeToggle<cr>
 inoremap <silent> <F12> <ESC>:NERDTreeToggle<cr>
 let NERDTreeIgnore=['.vim$', '\~$', '.*\.pyc$', 'pip-log\.txt$']
 
-" this should write a file even if sudo access is required
-"cmap w!! w !sudo tee % >/dev/null
-
-" not sure what this does
-"nnoremap <leader>s <C-w>v<C-w>l
-
+" use the smyck colorscheme
 colorscheme smyck
 
 " pymode plugin settings
@@ -184,19 +175,12 @@ let g:pymode_lint_write = 1
 let g:pymode_lint_checker = "pylint,pep8,mccabe"
 let g:pymode_lint_ignore = "E501,E302,W291,W293,W391"
 
-" Command-T plugin settings
-" let g:CommandTMaxHeight = 15
-" let g:CommandTMaxFiles = 100000
-" set wildignore+=*.git,*.pyc
-" nnoremap <leader>d :CommandTFlush<CR>
-" nnoremap <leader>f :CommandT<CR>
-
 " Ctrl-P plugin settings
 :let g:ctrlp_map = '<Leader>f'
 :let g:ctrlp_match_window_bottom = 0
 :let g:ctrlp_match_window_reversed = 0
 :let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\]).(hg|git|bzr)($|[/\\])|__init__\.py'
-:let g:ctrlp_working_path_mode = 'c'
+:let g:ctrlp_working_path_mode = 'w'
 :let g:ctrlp_dotfiles = 0
 nnoremap <leader>b :CtrlPBuffer<CR>
 
@@ -204,5 +188,5 @@ nnoremap <leader>b :CtrlPBuffer<CR>
 " use <NUMBER>G to jump to line numbers, instead
 set rnu
 
-" powerline settings
+" use powerline settings
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
