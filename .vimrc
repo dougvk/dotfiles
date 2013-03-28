@@ -184,9 +184,16 @@ let g:pymode_lint_ignore = "E501,E302,W291,W293,W391"
 :let g:ctrlp_dotfiles = 0
 nnoremap <leader>b :CtrlPBuffer<CR>
 
+" Settings for YouCompleteMe
+let g:ycm_complete_in_comments_and_strings = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+
 " relative line numbers for jumping around
 " use <NUMBER>G to jump to line numbers, instead
 set rnu
 
 " use powerline settings
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+
+" python-mode breakpoint default overlaps with ctrlp
+let g:pymode_breakpoint_key = '<leader>q'
