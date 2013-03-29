@@ -86,7 +86,7 @@ set wildignore=*.swp,*.bak,*.pyc,*.o
 
 " create global undofile
 set undofile
-set undodir=/Users/dougvk/undofiles
+set undodir=$VIM_UNDODIR
 
 " various commands having to do with searching/matching text
 nnoremap / /\v

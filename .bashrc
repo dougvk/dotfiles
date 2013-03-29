@@ -77,6 +77,17 @@ fi
 # use powerline now
 . ~/.vim/bundle/powerline/powerline/bindings/bash/powerline.sh
 
+# some more ls aliases
+alias ll='ls -lG'
+alias df='df -h'
+alias g='git'
+alias u='cd ..'
+alias ls='ls -G'
+alias la='ls -laG'
+alias l='ll'
+alias h='hg'
+alias hl='hg log | head -n 20'
+
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     eval "`dircolors -b`"
@@ -88,17 +99,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
-
-# some more ls aliases
-alias ll='ls -lG'
-alias df='df -h'
-alias g='git'
-alias u='cd ..'
-alias ls='ls -G'
-alias la='ls -laG'
-alias l='ll'
-alias h='hg'
-alias hl='hg log | head -n 20'
 
 # ifconfig
 # ping broadcast ip
