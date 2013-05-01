@@ -176,12 +176,12 @@ let g:pymode_lint_checker = "pylint,pep8,mccabe"
 let g:pymode_lint_ignore = "E501,E302,W291,W293,W391"
 
 " Ctrl-P plugin settings
-:let g:ctrlp_map = '<Leader>f'
-:let g:ctrlp_match_window_bottom = 0
-:let g:ctrlp_match_window_reversed = 0
-:let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\]).(hg|git|bzr)($|[/\\])|__init__\.py'
-:let g:ctrlp_working_path_mode = 'w'
-:let g:ctrlp_dotfiles = 0
+let g:ctrlp_map = '<Leader>f'
+let g:ctrlp_match_window_bottom = 0
+let g:ctrlp_match_window_reversed = 0
+let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend|html|compiled\.js)$|(^|[/\\]).(hg|git|bzr|sitestatic)($|[/\\])|__init__\.py|(^|[/\\])(sitestatic)($|[/\\])'
+let g:ctrlp_working_path_mode = 'w'
+let g:ctrlp_dotfiles = 0
 nnoremap <leader>b :CtrlPBuffer<CR>
 
 " Settings for YouCompleteMe
@@ -197,3 +197,9 @@ set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
 " python-mode breakpoint default overlaps with ctrlp
 let g:pymode_breakpoint_key = '<leader>q'
+
+" column at 80 chars
+set colorcolumn=80
+
+autocmd BufWritePost *.hamlpy !hamlpy <afile> > <afile>:r.html
+autocmd BufWritePost *.scss !fab sass
